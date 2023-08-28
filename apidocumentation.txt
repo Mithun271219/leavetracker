@@ -2,6 +2,7 @@ defult port is 3001;
 
 to get all users: method get "http://localhost:3001/user"
 need token: sign in to get token and use the token in => req.headers.authorization=> Bearer token
+token is valid for 8 hours
 eg data
 [
   {
