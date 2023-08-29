@@ -4,6 +4,10 @@ module.exports = {
     db: null,
 
     users: null,
+    police: null,
+    approvedLeaves: null,
+    appliedLeaves: null,
+    rejectedLeaves: null,
 
     async connect() {
         try {
@@ -18,6 +22,10 @@ module.exports = {
 
             //paths initilization
             this.users = await this.db.collection('users');
+            this.police = await this.db.collection('policeman');
+            this.approvedLeaves = await this.db.collection('approvedLeaves');
+            this.appliedLeaves = await this.db.collection('appliedLeaves');
+            this.rejectedLeaves = await this.db.collection('rejectedLeaves');
 
             console.log('paths initilized')
         } catch (error) {

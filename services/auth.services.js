@@ -47,23 +47,6 @@ module.exports = {
                 let token = await jwt.sign({ bklid: isUser.bklid }, process.env.JWT_KEY, { expiresIn: process.env.JWT_EXPIRY })
                 return res.json({ message: "Login Success", token })
             }
-
-            // if (!isUser) {
-            //     res.status(401).json({ message: "user not fount", link: "http://localhost:3001/auth/signup" })
-            // } else {
-            //     //pass validtion
-            //     let isValid = await bcrypt.compare(password, isUser.password);
-            //     if (!isValid) {
-            //         res.status(401).json({ message: "password or bklid is incorrect" })
-            //     } else {
-            //         if (!isUser.isActive) {
-            //             res.status(401).json({ message: "user is not active" })
-            //         } else {
-            //             res.json(isValid)
-            //         }
-            //     }
-            // }
-
         } catch (error) {
             console.log(error)
             res.status(500).json({ message: "error while signin" });
@@ -88,7 +71,7 @@ module.exports = {
             res.json({ message: "user disabled" })
         } catch (error) {
             console.log(error)
-            res.status(500).json({ message: "error deleting the user" });
+            res.status(500).json({ message: "error deactivating the user" });
         }
     },
 
@@ -99,7 +82,7 @@ module.exports = {
             res.json({ message: "user enabled" })
         } catch (error) {
             console.log(error)
-            res.status(500).json({ message: "error deleting the user" });
+            res.status(500).json({ message: "error activating the user" });
         }
     }
 }

@@ -6,6 +6,7 @@ const { connect } = require('./shared/mongo');
 const { logging, jwtTokenValidation } = require('./shared/middleware');
 const authUsers = require('./routes/auth.routes');
 const usersInfo = require('./routes/userInfo.routes')
+const polices = require('./routes/policeman.routes');
 
 const app = express();
 dotenv.config();
@@ -22,6 +23,8 @@ dotenv.config();
         app.use(logging);
 
         app.use('/auth', authUsers)
+
+        app.use('/police', polices)
 
         app.use(jwtTokenValidation)
 
