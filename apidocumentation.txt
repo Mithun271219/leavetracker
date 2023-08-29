@@ -44,3 +44,37 @@ activateuser :methos put "http://localhost:3001/auth/activate"
 req.body:{
      "bklid":"1111"
 }
+
+createPoliceman: :method: post :"http://localhost:3001/police/createpolice"
+req.body=>
+{
+    "bklid":"8105",
+    "name":"mithun kb",
+    "address":"nadfo oefnlc ouefn",
+    "mobile_no":"8105160930",
+    "altr_mobile_no":"8105160930",
+    "policetype":"DC",
+    "accesstype":"admin"
+}
+
+getallpolice ;get: "http://localhost:3001/police"
+res=>
+[
+    {
+        "_id": "64ee28f3b5fd54812cc26992",
+        "bklid": "8105",
+        "name": "mithun kb",
+        "address": "nadfo oefnlc ouefn",
+        "mobile_no": "8105160930",
+        "altr_mobile_no": "8105160930",
+        "policetype": "DC",
+        "accesstype": "admin",
+        "createdDate": "2023-08-29T17:20:51.717Z",
+        "editedDate": "2023-08-29T17:20:51.717Z"
+    }
+]
+deletepolice:"http://localhost:3001/police/deletepolice"
+rq.bofy=>
+{
+    bklid:"leaknsf"
+}
